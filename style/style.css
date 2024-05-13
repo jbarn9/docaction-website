@@ -1,0 +1,73 @@
+
+html, body{
+    background:linear-gradient(to bottom, #044652 70%,#055a69);
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100%;
+}
+/* font families */
+.inria-sans-light {
+    font-family: "Inria Sans", sans-serif;
+    font-weight: 300;
+    font-style: normal;
+  }
+  
+  .inria-sans-light-italic {
+    font-family: "Inria Sans", sans-serif;
+    font-weight: 300;
+    font-style: italic;
+  }
+  
+  .inria-sans-regular {
+    font-family: "Inria Sans", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+  }
+  
+  .inria-sans-regular-italic {
+    font-family: "Inria Sans", sans-serif;
+    font-weight: 400;
+    font-style: italic;
+  }
+  
+  .inria-sans-bold {
+    font-family: "Inria Sans", sans-serif;
+    font-weight: 700;
+    font-style: normal;
+  }
+  
+  .inria-sans-bold-italic {
+    font-family: "Inria Sans", sans-serif;
+    font-weight: 700;
+    font-style: italic;
+  }
+h2{
+    font-size: 1.2em;
+}  
+img{
+   height: 5vh; 
+}
+.container_head_title{
+    display: grid;
+    justify-content: center;
+    text-align: center;
+    color: white;
+}
+div.container{
+    display: grid;
+    justify-content: center;
+    gap: 10px;
+}
+div.button_container{
+    display: grid;
+    grid-template-columns:  repeat(3, 1fr);
+    justify-items: center;
+    align-items: center;
+    background-color: rgba(255, 255, 255, 0.5);
+}
+  div.button_container:hover{
+    background-color: rgba(255, 255, 255, 0.8);
+  }
+.icon_arrow{
+    height: 2vh;
+}
