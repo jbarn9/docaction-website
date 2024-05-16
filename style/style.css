@@ -28,6 +28,9 @@ header{
   header > *{
       padding: 5px 5px;
   }
+  header > img, img.logo_index{
+    height: 5vh; 
+  }
 h1{
   text-align: center;
 }
@@ -70,9 +73,7 @@ h1{
 h2{
     font-size: 1.2em;
 }  
-header > img{
-   height: 5vh; 
-}
+
 .container_head_title{
     display: grid;
     justify-content: center;
