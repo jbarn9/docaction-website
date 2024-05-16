@@ -1,27 +1,6 @@
 @import url("https://fonts.googleapis.com/css2?family=Inria+Sans:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap");
+@import './style.css';
 
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-body,
-input {
-  font-family: "Inria Sans", sans-serif;
-}
-header{
-    position: relative;
-    display: grid;
-    grid-template-columns: repeat(2,min-content) auto;
-    align-items: center;
-    background-color: #044652;
-    color: white;
-    z-index:6;
-}
-    header > *{
-        padding: 5px 5px;
-    }
 h1{
     text-align: center;
 }

@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Demande d'inscription Parcs animaliers</title>
+    <link rel="stylesheet" href="style/zoo-registration.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+  </head>
+  <body>
+    <header>
+      <img src="img/logo/tickets.png" alt="logo visitor" />
+      <p>Parcs animaliers</p>
+      <h1>DocAction</h1>
+    </header>
+    <div class="container">
+      <!-- Form Begins -->
+      <form action="#" class="form">
+        <h2 class="text-center">Demande d'inscription sur l'application</h2>
+
+        <!-- Progress Bar  -->
+        <div class="progressbar">
+          <div class="progress" id="progress"></div>
+          <div
+            class="progress-step progress-step-active"
+            data-title="Identité"
+          ></div>
+          <div class="progress-step" data-title="Tarifs"></div>
+          <div class="progress-step" data-title="Services"></div>
+          <div class="progress-step" data-title="Espèces"></div>
+        </div>
+
+        <!-- Form item - Identity -->
+        <div class="form-step form-step-active">
+          <div class="input-group">
+            <label for="name">Nom de l'établissement</label>
+            <input type="text" name="name" id="name" />
+          </div>
+          <div class="input-group">
+            <label for="address">Adresse (Numéro, voie)</label>
+            <input type="text" name="address" id="address" />
+          </div>
+          <div class="input-group">
+            <label for="ceo">Nom du directeur</label>
+            <input type="text" name="ceo" id="ceo" />
+          </div>
+          <div class="input-group">
+            <label for="email">E-mail du directeur</label>
+            <input type="email" name="email" id="email" />
+          </div>
+          <!-- <div class="input-group">
+                <label for="dob">Date of Birth</label>
+                <input type="date" name="dob" id="dob" />
+            </div> -->
+          <div class="">
+            <a href="#" class="btn btn-next width-50 ml-auto">Suivant</a>
+          </div>
+        </div>
+
+        <!-- Form item - Fees -->
+        <div class="form-step">
+          <div class="input-group">
+            <label for="fees">Tarif normal</label>
+            <input type="text" name="fees" id="fees" />
+          </div>
+          <div class="input-group">
+            <label for="specificfees">Tarifs spécifiques</label>
+            <textarea
+              name="specificfees"
+              id="specificfees"
+              rows="20"
+              placeholder="Détaillez tous les tarifs appliqués auprès des différents publics"
+            ></textarea>
+          </div>
+          <div class="btns-group">
+            <a href="#" class="btn btn-prev">Retour</a>
+            <a href="#" class="btn btn-next">Suivant</a>
+          </div>
+        </div>
+
+        <!-- Form item - Services -->
+        <div class="form-step">
+          <ul class="unstyled centered">
+            <li>
+              <input
+                class="styled-checkbox"
+                id="styled-checkbox-1"
+                type="checkbox"
+                value="value1"
+              />
+              <label for="styled-checkbox-1">Boutique(s) de souvenirs</label>
+            </li>
+            <li>
+              <input
+                class="styled-checkbox"
+                id="styled-checkbox-2"
+                type="checkbox"
+                value="value2"
+              />
+              <label for="styled-checkbox-2">Restaurant(s)</label>
+            </li>
+          </ul>
+          <div class="input-group">
+            <label for="otherservices">Autre(s) service(s)</label>
+            <textarea
+              name="otherservices"
+              id="otherservices"
+              rows="10"
+              placeholder=""
+            ></textarea>
+          </div>
+          <div class="btns-group">
+            <a href="#" class="btn btn-prev">Retour</a>
+            <a href="#" class="btn btn-next">Suivant</a>
+          </div>
+        </div>
+
+        <!-- Form item - Threaten Species -->
+        <div class="form-step">
+          <div class="input-group">
+            <label for="nbspecies">Nombre d'espèces menacées</label>
+            <input type="number" name="nbspecies" id="nbspecies" />
+          </div>
+          <div class="input-group">
+            <label for="confirmPassword">Lesquelles ?</label>
+            <input list="species" />
+            <datalist id="species">
+              <option value="Sifaka Soyeux">Sifaka Soyeux</option>
+              <option value="Makis Cattas">Makis Cattas</option>
+              <option value="Grand Hapalémur">Grand Hapalémur</option>
+            </datalist>
+          </div>
+          <div class="btns-group">
+            <a href="#" class="btn btn-prev">Retour</a>
+            <input type="submit" value="Enregistrer" class="btn" />
+          </div>
+        </div>
+      </form>
+
+      <!-- Social Credit Links -->
+      <div class="social_media_div">
+        <ul class="icons_list">
+          <li>
+            <a href="https://github.com/rahulrajput83" target="_blank"
+              ><i class="fa fa-github"></i
+            ></a>
+          </li>
+          <li>
+            <a href="https://instagram.com/rajput_rahul8" target="_blank"
+              ><i class="fa fa-instagram"></i
+            ></a>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <script>
+      const prevBtns = document.querySelectorAll(".btn-prev");
+      const nextBtns = document.querySelectorAll(".btn-next");
+      const progress = document.querySelector(".progress");
+      const formSteps = document.querySelectorAll(".form-step");
+      const progressSteps = document.querySelectorAll(".progress-step");
+
+      let formStepsNum = 0;
+
+      /* Event Listener for Next Button. */
+      nextBtns.forEach((btn) => {
+        btn.addEventListener("click", () => {
+          formStepsNum++;
+          updateFormSteps();
+          updateProgressbar();
+        });
+      });
+
+      /* Event Listener for Back Button. */
+      prevBtns.forEach((btn) => {
+        btn.addEventListener("click", () => {
+          formStepsNum--;
+          updateFormSteps();
+          updateProgressbar();
+        });
+      });
+
+      /* Updates Form Items */
+      function updateFormSteps() {
+        formSteps.forEach((formStep) => {
+          formStep.classList.contains("form-step-active") &&
+            formStep.classList.remove("form-step-active");
+        });
+        formSteps[formStepsNum].classList.add("form-step-active");
+      }
+
+      /* Updates Progress Bar */
+      function updateProgressbar() {
+        progressSteps.forEach((progressStep, index) => {
+          if (index < formStepsNum + 1) {
+            progressStep.classList.add("progress-step-active");
+          } else {
+            progressStep.classList.remove("progress-step-active");
+          }
+        });
+        progress.style.width =
+          (formStepsNum / (progressSteps.length - 1)) * 100 + "%";
+      }
+    </script>
+  </body>
+</html>

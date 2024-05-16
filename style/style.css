@@ -1,9 +1,35 @@
-
+/* Global Styles */
+:root {
+  --primary-color: #044652;
+  /* fonts */
+  --primary-font: "Inria Sans", sans-serif;
+}
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 html, body{
     background:linear-gradient(to bottom, #044652 70%,#055a69);
     background-repeat: no-repeat;
     background-size: cover;
     height: 100%;
+    font-family: var(--primary-font);
+}
+header{
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(2,min-content) auto;
+  align-items: center;
+  background-color: var(--primary-color);
+  color: white;
+  z-index:6;
+}
+  header > *{
+      padding: 5px 5px;
+  }
+h1{
+  text-align: center;
 }
 /* font families */
 .inria-sans-light {
@@ -44,7 +70,7 @@ html, body{
 h2{
     font-size: 1.2em;
 }  
-img{
+header > img{
    height: 5vh; 
 }
 .container_head_title{
@@ -57,6 +83,8 @@ div.container{
     display: grid;
     justify-content: center;
     gap: 10px;
+    z-index: 2;
+    position: relative;
 }
 button.button_container{
     display: grid;
@@ -70,4 +98,17 @@ button.button_container{
   }
 .icon_arrow{
     height: 2vh;
+}
+@media all and (max-width: 800px) and (orientation: landscape) {
+  header > img{
+    height: 9vh;
+  }
+}
+@media all and (max-width: 800px){
+  h1{
+    font-size: 1.6em;
+  }
+  h2, .title{
+    font-size: 1.4em!important;
+  }
 }
