@@ -5,5 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Profil utilisateur</title>
   </head>
-  <body></body>
+  <body>
+    <p>
+      <?= "Bienvenue ".$_GET["name"]." !"?>
+    </p>
+  </body>
 </html>

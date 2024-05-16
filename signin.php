@@ -1,8 +1,13 @@
 <?php
-if(!empty($_POST["name"] && $_POST["email"] && $_POST["password"]) && isset($_POST["name"]) && isset($_POST["email"]) && isset($_POST["password"])){
-    $dbco = new PDO("mysql:host=localhost;dbname=docaction","root","root");
-    $dbco->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-    
+if(!empty($_POST["name"] && $_POST["email"] && $_POST["password"]) && isset($_POST["name"]) && isset($_POST["email"]) && isset($_POST["password"]))
+{
+    try {
+        $dbco = new PDO("mysql:host=localhost;dbname=docaction","root","root");
+        $dbco->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+    } catch(PDOException $e){
+        echo "Le code de l'exception est : " . $e->getMessage();
+    }
+
     $name = $_POST["name"];
     $email = $_POST["email"];
     $password = $_POST["password"];
@@ -17,7 +22,5 @@ if(!empty($_POST["name"] && $_POST["email"] && $_POST["password"]) && isset($_PO
     $sth->execute();
         
     //On renvoie l'utilisateur vers la page de remerciement
-    header("Location:profile.html");
-}else {
-    echo 'error';
+    header("Location:profile.php?name=$name");
 }
