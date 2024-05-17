@@ -1,12 +1,7 @@
 <?php
 if(!empty($_POST["name"] && $_POST["email"] && $_POST["password"]) && isset($_POST["name"]) && isset($_POST["email"]) && isset($_POST["password"]))
 {
-    try {
-        $dbco = new PDO("mysql:host=localhost;dbname=docaction","root","root");
-        $dbco->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-    } catch(PDOException $e){
-        echo "Le code de l'exception est : " . $e->getMessage();
-    }
+    require "pdo_co.php";
 
     $name = $_POST["name"];
     $email = $_POST["email"];
@@ -21,6 +16,6 @@ if(!empty($_POST["name"] && $_POST["email"] && $_POST["password"]) && isset($_PO
     $sth->bindParam(':password',password_hash($password, PASSWORD_BCRYPT));
     $sth->execute();
         
-    //On renvoie l'utilisateur vers la page de remerciement
+    //On renvoie l'utilisateur vers la page de profil
     header("Location:profile.php?name=$name");
 }
