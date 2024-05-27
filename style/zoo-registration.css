@@ -198,6 +198,7 @@ label {
     border: 1px solid var(--primary-color);
     border-radius: 0.35rem;
     padding: 1.5rem;
+    z-index: 1;
 }
 
 /* Styles for input group. */
