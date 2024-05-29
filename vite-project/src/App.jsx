@@ -1,60 +1,56 @@
-import { useReducer, useState } from "react";
-import { useForm } from "react-hook-form";
+import { useMemo, useState, useRef } from "react";
+import {useForm} from "react-hook-form";
+import axios from "axios";
+
 import "./App.css";
+import Input from "./components/forms/Input";
+
 
 function App() {
-  // On créé un champ contrôlé
+  const form = useRef(null)
   const {
-    handleSubmit,
     register,
-    formState: { errors },
+    handleSubmit,
+    formState: { errors }
   } = useForm();
-  const onSubmit = (data) =>{
-    console.log(data);
+ 
+  const onSubmit = () =>{
+    const data = new FormData(form.current);
+    console.log(data)
+    return false;
   }
-  // const reducer = (prev, next) =>({...prev, ...next})
-  // const[data, updateData ] = useReducer(reducer, {
-  //   username : "",
-  //   email : "",
-  //   password : ""
-  // })
-  return (
-    <form onSubmit={handleSubmit(onSubmit)} action="../signin.php" method="POST">
-      <h2 class="title">Se connecter</h2>
-      <div class="input-field">
-        <i class="fas fa-user"></i>
-        {errors.username && <p>Le pseudo est requis</p>}
-        {errors.password && <p>Un mot de passe est requis</p>}
-        <input  onChange={(e) => updateData({ name: e.target.value})} type="text" placeholder="Nom d'utilisateur" {...register("username", {required: true})} />
-      </div>
-      <div class="input-field">
-        <i class="fas fa-lock"></i>
-        <input  type="email" placeholder="Email" {...register("email", {required: true})}/>
-      </div>
-      <div class="input-field">
-        <i class="fas fa-lock"></i>
-        <input  type="password" placeholder="Mot de passe" {...register("password", {required: true})}/>
-      </div>
-      
-      <input type="submit" value="Se connecter" class="btn solid" />
+  
+  // const security = useMemo(() => {
+  //   return passwordSecurity(password)
+  // }, [password])
 
-      <p class="social-text">Ou se connecter avec les réseaux sociaux</p>
-      <div class="social-media">
-        <a href="#" class="social-icon">
-          <i class="fab fa-facebook-f"></i>
-        </a>
-        <a href="#" class="social-icon">
-          <i class="fab fa-twitter"></i>
-        </a>
-        <a href="#" class="social-icon">
-          <i class="fab fa-google"></i>
-        </a>
-        <a href="#" class="social-icon">
-          <i class="fab fa-linkedin-in"></i>
-        </a>
-      </div>
+  return (
+    <form ref={form} onSubmit={handleSubmit(onSubmit)}>
+      <h2 class="title">S'inscrire</h2>
+      <Input type="email" name="email" placeholder="Email" {...register("email", { 
+        required: true,
+        pattern: {
+          value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i
+        }
+        })} />
+      {errors.email && <p>Email is required and must be valid</p>}
+      <Input type="password" name="password" placeholder="Mot de passe" {...register("password", { required: true })} />
+      {errors.password && <p>Password is required</p>}
+      <input type="submit" value="S'inscrire" class="btn solid" />
     </form>
   );
 }
 
+function passwordSecurity(password){
+  let startTime = performance.now();
+  while(performance.now() - startTime < 200){
+
+  }
+  if(password.length < 3){
+    return 'Faible'
+  }else if(password.length < 6){
+    return 'Moyen'
+  }
+  return 'Fort'
+}
 export default App;
