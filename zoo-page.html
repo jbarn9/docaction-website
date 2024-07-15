@@ -1,11 +1,11 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
   <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Demande d'inscription Parcs animaliers</title>
-    <link rel="stylesheet" href="style/zoo-registration.css" />
+    <link rel="stylesheet" href="assets/style/zoo-registration.css" />
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
@@ -13,9 +13,21 @@
   </head>
   <body>
     <header>
-      <img src="img/logo/tickets.png" alt="logo visitor" />
-      <p>Parcs animaliers</p>
-      <h1>DocAction</h1>
+      <div>
+        <div>
+          <h1>DocAction</h1>
+        </div>
+        <div>
+          <img
+            src="assets/img/logo/tickets.png"
+            alt="logo visitor"
+            height="40"
+            width="40"
+            class="logo_visitor"
+          />
+          <p>Parcs animaliers</p>
+        </div>
+      </div>
     </header>
     <div class="container">
       <!-- Form Begins -->
@@ -126,6 +138,10 @@
             <input type="number" name="nbspecies" id="nbspecies" />
           </div>
           <div class="input-group">
+            <label for="nbspecies">Pays d'origine de l'espèce</label>
+            <input type="number" name="nbspecies" id="nbspecies" />
+          </div>
+          <div class="input-group">
             <label for="confirmPassword">Lesquelles ?</label>
             <input list="species" />
             <datalist id="species">
@@ -153,54 +169,6 @@
         </ul>
       </div>
     </div>
-    <script>
-      const prevBtns = document.querySelectorAll(".btn-prev");
-      const nextBtns = document.querySelectorAll(".btn-next");
-      const progress = document.querySelector(".progress");
-      const formSteps = document.querySelectorAll(".form-step");
-      const progressSteps = document.querySelectorAll(".progress-step");
-
-      let formStepsNum = 0;
-
-      /* Event Listener for Next Button. */
-      nextBtns.forEach((btn) => {
-        btn.addEventListener("click", () => {
-          formStepsNum++;
-          updateFormSteps();
-          updateProgressbar();
-        });
-      });
-
-      /* Event Listener for Back Button. */
-      prevBtns.forEach((btn) => {
-        btn.addEventListener("click", () => {
-          formStepsNum--;
-          updateFormSteps();
-          updateProgressbar();
-        });
-      });
-
-      /* Updates Form Items */
-      function updateFormSteps() {
-        formSteps.forEach((formStep) => {
-          formStep.classList.contains("form-step-active") &&
-            formStep.classList.remove("form-step-active");
-        });
-        formSteps[formStepsNum].classList.add("form-step-active");
-      }
-
-      /* Updates Progress Bar */
-      function updateProgressbar() {
-        progressSteps.forEach((progressStep, index) => {
-          if (index < formStepsNum + 1) {
-            progressStep.classList.add("progress-step-active");
-          } else {
-            progressStep.classList.remove("progress-step-active");
-          }
-        });
-        progress.style.width =
-          (formStepsNum / (progressSteps.length - 1)) * 100 + "%";
-      }
-    </script>
+    <script src="assets/js/form.js"></script>
   </body>
 </html>

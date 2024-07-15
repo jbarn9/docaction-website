@@ -1,13 +1,13 @@
 /* Global Styles */
 @import './style.css';
 
+html, body{
+    background: none!important;
+}
 .container {
     display: grid;
     place-items: center;
     min-height: 100vh;
-    background: #EBBA16;
-    background-repeat: no-repeat;
-    background-size: cover;
 }
 
 h1 {
@@ -182,7 +182,7 @@ label {
     position: absolute;
     top: calc(100% + 0.5rem);
     font-size: 0.85rem;
-    color: #ffff;
+    color: black;
     font-weight: 600;
 }
 
@@ -192,14 +192,40 @@ label {
 }
 
 /* Styles for Form. */
-.form {
-    width: 30rem;
-    margin: 0 auto;
-    border: 1px solid var(--primary-color);
-    border-radius: 0.35rem;
-    padding: 1.5rem;
-    z-index: 1;
+form {
+  background-color: transparent;
+  border: 1px solid #266DB6;
+  box-sizing: border-box;
+  color: #00132C;
+  font-family: "Avenir Next LT W01 Bold",sans-serif;
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 24px;
+  padding: 16px 23px;
+  position: relative;
+  text-decoration: none;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
 }
+
+form:hover,
+form:active {
+  outline: 0;
+}
+
+form:before {
+  background-color: #D5EDF6;
+  content: "";
+  height: calc(100% + 3px);
+  position: absolute;
+  right: -12px;
+  top: -12px;
+  transition: background-color 300ms ease-in;
+  width: 100%;
+  z-index: -1;
+}
+
 
 /* Styles for input group. */
 .input-group {

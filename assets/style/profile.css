@@ -1,8 +1,5 @@
 @import "./style.css";
 
-body{
-    background: none;
-}
 h1{
     color: white;
 }
@@ -10,7 +7,6 @@ div.cards-container{
     display: grid;
     grid-template-columns: repeat(2,auto);
     height: 100%;
-    background: linear-gradient(to bottom,#044652 70%,#055a69 );
   }
   .container_head_title{
       display: grid;
@@ -21,19 +17,27 @@ div.cards-container{
   div.container{
       display: grid;
       justify-content: center;
+      align-content: center;
       gap: 10px;
       z-index: 2;
-      position: relative;
+      margin: 1em 0 auto;
   }
   button.button_container{
       display: grid;
+      width: 100%;
       grid-template-columns:  repeat(3, 1fr);
       justify-items: center;
       align-items: center;
       background-color: rgba(255, 255, 255, 0.5);
+      border: 1px solid gray;
+      margin: 8px 0 2px 0px;
+      box-shadow: 4px 3px 5px white;
   }
     button.button_container:hover{
       background-color: rgba(255, 255, 255, 0.8);
+    }
+    button.button_container p{
+      font-size: var(--paragraph);
     }
   .icon_arrow{
       height: 2vh;

@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>DocAction - S'inscrire/Se connecter</title>
-    <link rel="stylesheet" type="text/css" href="style/connexion.css" />
+    <link rel="stylesheet" type="text/css" href="assets/style/connexion.css" />
     <script
       src="https://kit.fontawesome.com/64d58efce2.js"
       crossorigin="anonymous"
@@ -12,9 +12,21 @@
   </head>
   <body>
     <header>
-      <img src="img/logo/traveler.png" alt="logo visitor" />
-      <p>Visiteur</p>
-      <h1>DocAction</h1>
+      <div>
+        <div>
+          <h1>DocAction</h1>
+        </div>
+        <div>
+          <img
+            src="assets/img/logo/traveler.png"
+            alt="logo visitor"
+            height="40"
+            width="40"
+            class="logo_visitor"
+          />
+          <p>Visiteur</p>
+        </div>
+      </div>
     </header>
     <div class="container">
       <div class="forms-container">
@@ -33,7 +45,7 @@
                 name="password"
               />
             </div>
-            <input type="submit" value="Se connecter" class="btn solid" />
+            <button type="button" class="btn solid">Se connecter</button>
 
             <p class="social-text">Ou se connecter avec les réseaux sociaux</p>
             <div class="social-media">
@@ -70,7 +82,7 @@
                 placeholder="Mot de passe"
               />
             </div>
-            <input type="submit" value="S'inscrire" class="btn solid" />
+            <button class="btn transparent">S'inscrire</button>
 
             <p class="social-text">Ou se connecter avec les réseaux sociaux</p>
             <div class="social-media">
@@ -119,6 +131,6 @@
       </div>
     </div>
 
-    <script src="app.js"></script>
+    <script src="assets/js/app.js"></script>
   </body>
 </html>
